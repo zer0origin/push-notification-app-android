@@ -16,17 +16,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.callum.timetablenotifier.R
 import com.willcocks.callum.timetablenotifier.models.RegisterModel
 import com.willcocks.callum.timetablenotifier.network.PushNotificationService
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
 import kotlinx.serialization.InternalSerializationApi
 import java.io.File
 import java.util.UUID
-import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
     private val p = PushNotificationService()
@@ -69,7 +62,8 @@ class MainActivity : AppCompatActivity() {
         var uuidStr = config.getContent("uuid")
         var username = config.getContent("username") ?: ""
         if (username.isEmpty()){
-            //TODO: Show setUsername activity!
+            Log.e(TAG, "No username present!")
+            setContentView(R.layout.setup)
             return
         }
 

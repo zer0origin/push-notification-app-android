@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">TimetableNotifier</string>
     <string name="default_notification_channel_id" translatable="false">your_channel_id</string>
+    <string name="password">Password:</string>
+    <string name="username">Username:</string>
+    <string name="coventry_university_login">Coventry University Login</string>
+    <string name="important_notice">Note: All information is saved locally, only your username will be sent to an external server unless you are registering for the first time!</string>
 </resources>

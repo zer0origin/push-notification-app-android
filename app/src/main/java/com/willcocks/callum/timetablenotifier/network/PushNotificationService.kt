@@ -99,8 +99,7 @@ class PushNotificationService : FirebaseMessagingService() {
                     callback(uuid)
                 }
             } catch (e: ConnectException) {
-                Log.d(TAG, "Failed to connect to API service!")
-//                showNotification("TableNotifier", "Failed to connect to API service!")
+                Log.e(TAG, "Failed to connect to API service!")
                 e.printStackTrace()
                 return@launch
             } catch (e: IllegalArgumentException) {
