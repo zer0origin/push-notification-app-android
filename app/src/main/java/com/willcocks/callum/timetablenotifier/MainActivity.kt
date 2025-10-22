@@ -54,13 +54,15 @@ class MainActivity : AppCompatActivity() {
         config = Config(settingsFile)
 
         Log.d(TAG, "Loading config")
-        config.loadOrCreateConfig(contentToWriteToFile = {
-            config.setContent("uuid", "")
-            config.setContent("username", "")
+        config?.loadOrCreateConfig(contentToWriteToFile = {
+            config?.setContent("uuid", "")
+            config?.setContent("username", "")
+            config?.setContent("password", "")
+            config?.setContent("register_auth", "")
         })
 
-        var uuidStr = config.getContent("uuid")
-        var username = config.getContent("username") ?: ""
+        var uuidStr = config?.getContent("uuid")
+        var username = config?.getContent("username") ?: ""
         if (username.isEmpty()){
             Log.e(TAG, "No username present!")
             setContentView(R.layout.setup)
@@ -82,8 +84,8 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "Attempting to register")
         p.registerToken(serverApiHostname, reqModel, callback = { uuid ->
             Log.d(TAG, "Received UUID of ${uuid.toString()} from server!")
-            config.setContent("uuid", uuid.toString())
-            config.writeContentsToDisk()
+            config?.setContent("uuid", uuid.toString())
+            config?.writeContentsToDisk()
         })
 
         Log.d(TAG, "Started")
