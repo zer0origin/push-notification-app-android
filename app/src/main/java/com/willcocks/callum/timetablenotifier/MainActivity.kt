@@ -6,6 +6,8 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.callum.timetablenotifier.R
+import com.willcocks.callum.timetablenotifier.models.Files
 import com.willcocks.callum.timetablenotifier.models.RegisterModel
 import com.willcocks.callum.timetablenotifier.network.PushNotificationService
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -96,5 +99,25 @@ class MainActivity : AppCompatActivity() {
         val tokenInfo = findViewById<TextView>(R.id.tokenInfo)
         tokenInfo.text = token
         Log.d(TAG, "Token: $token")
+    }
+
+    fun processUniversityLogin(view: View) {
+        val usernameInput = this.findViewById<EditText>(R.id.username_input)
+        val passwordInput = this.findViewById<EditText>(R.id.password_input)
+        val checkboxInput = this.findViewById<CheckBox>(R.id.register_auth_input)
+
+        val username = usernameInput.getText().toString()
+        val password = passwordInput.getText().toString()
+        val checkbox = checkboxInput.isChecked
+
+        Log.d(TAG, "Username: $username")
+        Log.d(TAG, "Password: $password")
+        Log.d(TAG, "Register: $checkbox")
+
+        config?.setContent("username", username)
+        config?.setContent("password", password)
+        config?.setContent("register_auth", "$checkbox")
+
+        setContentView(R.layout.activity_main)
     }
 }
