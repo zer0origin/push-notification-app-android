@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1074026715439",
+    "project_id": "uni-timetable-38860",
+    "storage_bucket": "uni-timetable-38860.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074026715439:android:2d624a733320ba56f0a9da",
+        "android_client_info": {
+          "package_name": "com.willcocks.callum.timetablenotifier"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWh5yTjPZqVNfTJJNHGnfMvyOwcgP3DW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
