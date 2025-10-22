@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     private val p = PushNotificationService()
     private val TAG = "MainActivity"
     private val serverApiHostname = "http://10.0.2.2:8082"
+    private val settingsFile = File(filesDir, Files.SETTINGS_FILE_NAME.toString())
+    private var config : Config? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,9 +51,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val filename = "settings"
-        val settingsFile = File(filesDir, filename)
-        val config = Config(settingsFile)
+        config = Config(settingsFile)
 
         Log.d(TAG, "Loading config")
         config.loadOrCreateConfig(contentToWriteToFile = {
