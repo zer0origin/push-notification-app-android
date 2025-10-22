@@ -10,6 +10,7 @@ import com.callum.timetablenotifier.R
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.willcocks.callum.timetablenotifier.models.Files
 import com.willcocks.callum.timetablenotifier.models.RegisterModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
